@@ -1051,6 +1051,70 @@ img { max-width: 100%; display: block; }
   }
 }
 
+/* Замын албаны спортын олон төрөлт тэмцээн */
+.thumb-zam {
+  background:
+    radial-gradient(70% 60% at 25% 25%, rgba(255, 159, 10, 0.50), transparent 70%),
+    radial-gradient(60% 60% at 80% 75%, rgba(255, 214, 10, 0.40), transparent 70%),
+    radial-gradient(50% 50% at 55% 0%, rgba(255, 99, 10, 0.40), transparent 70%),
+    linear-gradient(135deg, #1c1206 0%, #0a0805 55%, #14100a 100%);
+}
+.thumb-zam::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: 72%;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, rgba(255, 214, 10, 0.55) 0 46px, transparent 46px 86px);
+  -webkit-mask: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  animation: zamRoad 2.4s linear infinite;
+}
+.thumb-zam::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(45% 40% at 50% 45%, rgba(255, 159, 10, 0.22), transparent 70%);
+  animation: zamGlow 5s ease-in-out infinite;
+  pointer-events: none;
+}
+.zam-ui {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  padding: 8%;
+}
+.zam-logo {
+  width: min(58%, 440px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 50px rgba(255, 159, 10, 0.5));
+  animation: zamFloat 7s ease-in-out infinite;
+  transition: transform 0.5s var(--ease);
+}
+.work-card:hover .zam-logo { animation-play-state: paused; transform: scale(1.05); }
+@keyframes zamFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 12px 50px rgba(255, 159, 10, 0.5)) drop-shadow(0 0 0 rgba(255, 214, 10, 0));
+  }
+  50% {
+    transform: translateY(-8px) scale(1.015);
+    filter: drop-shadow(0 22px 70px rgba(255, 159, 10, 0.65)) drop-shadow(0 0 30px rgba(255, 214, 10, 0.5));
+  }
+}
+@keyframes zamRoad {
+  0% { background-position: 0 0; }
+  100% { background-position: 86px 0; }
+}
+@keyframes zamGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
 /* Featured card extra */
 .work-card-feature {
   border-color: rgba(10, 132, 255, 0.35);
