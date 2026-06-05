@@ -20,22 +20,25 @@ links.querySelectorAll('a').forEach(a =>
 const targets = document.querySelectorAll(
   '.hero-text, .hero-photo, .about-body, .section-head, .work-card, .member, .contact-card, .stat'
 );
-targets.forEach(el => el.classList.add('reveal'));
-
-const io = new IntersectionObserver(
-  entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        const delay = Math.min(i * 40, 240);
-        entry.target.style.transitionDelay = `${delay}ms`;
-        entry.target.classList.add('visible');
-        io.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.12 }
-);
-targets.forEach(el => io.observe(el));
+if ('IntersectionObserver' in window) {
+  targets.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver(
+    entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const delay = Math.min(i * 40, 240);
+          entry.target.style.transitionDelay = `${delay}ms`;
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+  targets.forEach(el => io.observe(el));
+}
+/* If IntersectionObserver is missing (old in-app browsers), skip the reveal
+   animation entirely so content stays visible — never add .reveal then. */
 
 /* ---------- Marquee ---------- */
 const track = document.querySelector('.marquee-track');
