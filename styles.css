@@ -1450,7 +1450,7 @@ img { max-width: 100%; display: block; }
   position: absolute;
   top: 16px;
   right: 16px;
-  z-index: 2;
+  z-index: 10;
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -1476,6 +1476,8 @@ img { max-width: 100%; display: block; }
   aspect-ratio: 16 / 10;
   border-bottom: 1px solid var(--line);
   position: relative;
+  z-index: 0; /* contain logo overlays (.tsahim-ui/.mongolz-ui/.zam-ui) so they
+                 can't paint over the close button */
   overflow: hidden;
 }
 .modal-body { padding: 32px 36px 40px; }
