@@ -540,7 +540,7 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   color: var(--ink-2);
   letter-spacing: -0.02em;
-  animation: marquee 18s linear infinite;
+  animation: marquee 5s linear infinite;
 }
 .marquee-track span:nth-child(even) {
   font-weight: 700;
