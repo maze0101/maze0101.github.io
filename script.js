@@ -1,5 +1,15 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+/* ---------- Instagram (нэг тохиргооноос) ---------- */
+(() => {
+  const handle = (window.SITE_CONFIG && window.SITE_CONFIG.instagramHandle || '').replace(/^@/, '');
+  if (!handle) return;
+  const link = document.getElementById('instagram-link');
+  const label = document.getElementById('instagram-handle');
+  if (link) link.href = 'https://www.instagram.com/' + handle + '/';
+  if (label) label.textContent = '@' + handle;
+})();
+
 /* ---------- Mobile nav ---------- */
 const toggle = document.querySelector('.menu-toggle');
 const links = document.querySelector('.nav-links');
