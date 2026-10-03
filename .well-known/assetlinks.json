@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "mn.salkhi.app",
+        "sha256_cert_fingerprints": ["E1:C4:B5:81:83:55:DE:5D:09:08:AE:E8:53:DA:AA:C9:36:7C:67:6B:0E:93:7B:0B:5F:5C:66:34:48:65:2A:81"]
+      }
+    }]
